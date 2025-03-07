@@ -1,0 +1,32 @@
+CRIAR API - ANOTAÇÕES
+
+npm init -y > criar um template de app
+
+
+Dependências:
+npm install express cors
+
+
+app.js - Modelo Padrão
+const express = require("express")
+const cors = require("cors")
+
+const app = express();
+const port = 3000
+
+app.listen(port, () => {
+    console.log(`servidor rodando na porta: ${port}`)
+})
+
+___________________
+
+app.js - Criar Função
+app.get('/teste', (req,res) => {
+    res.send('Olá Mundo')
+})
+
+app.js - usar funções
+app.use(cors());
+app.use(express.json());
+
+___________________
