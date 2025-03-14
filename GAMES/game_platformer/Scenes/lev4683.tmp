@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjevo1lehvet0"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_aa17a"]
+[ext_resource type="Script" path="res://Scripts/spike.gd" id="2_r75rh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r64nm"]
+radius = 20.0
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cjyu"]
+radius = 22.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he4ac"]
+size = Vector2(960, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xus40"]
+size = Vector2(152, 18)
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(480, 100)
+script = ExtResource("1_aa17a")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_r64nm")
+
+[node name="Area2D" type="Area2D" parent="Player" groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource("CapsuleShape2D_2cjyu")
+debug_color = Color(0.156863, 0.411765, 0.25098, 0.74902)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(10, 530)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(470, -25.5)
+shape = SubResource("RectangleShape2D_he4ac")
+
+[node name="Spike" type="Area2D" parent="." groups=["Player"]]
+position = Vector2(112, 458)
+script = ExtResource("2_r75rh")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+shape = SubResource("RectangleShape2D_xus40")
+debug_color = Color(0.905882, 0.0745098, 0.211765, 0.419608)
+
+[connection signal="area_entered" from="Spike" to="Spike" method="_on_area_entered"]
