@@ -1,15 +1,15 @@
 [gd_scene load_steps=58 format=3 uid="uid://cjevo1lehvet0"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_aa17a"]
-[ext_resource type="Texture2D" uid="uid://b77m5js0nep53" path="res://Sprites/Background/Purple.png" id="1_bi40o"]
+[ext_resource type="Texture2D" uid="uid://dt4fh5h2k6kwh" path="res://Sprites/Background/Brown.png" id="1_n8gjp"]
 [ext_resource type="Texture2D" uid="uid://d4ejviukippo1" path="res://Sprites/Main Characters/Ninja Frog/Idle (32x32).png" id="2_7g088"]
-[ext_resource type="Texture2D" uid="uid://ci8phvo8eixm6" path="res://Sprites/Main Characters/Ninja Frog/Jump (32x32).png" id="3_71ccm"]
+[ext_resource type="Script" path="res://Scripts/spike.gd" id="2_r75rh"]
 [ext_resource type="Texture2D" uid="uid://ca7lewj4dh1wp" path="res://Sprites/Main Characters/Ninja Frog/Double Jump (32x32).png" id="3_rb0ux"]
 [ext_resource type="Texture2D" uid="uid://cc3xn32xqo878" path="res://Sprites/Main Characters/Ninja Frog/Fall (32x32).png" id="4_7ghxa"]
 [ext_resource type="Texture2D" uid="uid://dmbxruxuy3mtc" path="res://Sprites/Main Characters/Ninja Frog/Hit (32x32).png" id="4_jpkvd"]
+[ext_resource type="Texture2D" uid="uid://cagn5af0sfuy5" path="res://Sprites/Traps/Spikes/Idle.png" id="4_l8xv5"]
 [ext_resource type="Texture2D" uid="uid://cfvtrlpbfa7ce" path="res://Sprites/Main Characters/Ninja Frog/Run (32x32).png" id="6_hhesb"]
 [ext_resource type="Texture2D" uid="uid://djhxide6qj8cf" path="res://Sprites/Main Characters/Ninja Frog/Wall Jump (32x32).png" id="7_ngo07"]
-[ext_resource type="PackedScene" uid="uid://dctwuj4lv6qq" path="res://PreFabs/spike.tscn" id="10_ykh5j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r64nm"]
 radius = 13.0
@@ -17,10 +17,6 @@ radius = 13.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2cjyu"]
 radius = 14.0
 height = 32.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_txsbo"]
-atlas = ExtResource("3_71ccm")
-region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0encp"]
 atlas = ExtResource("3_rb0ux")
@@ -194,9 +190,6 @@ region = Rect2(128, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_txsbo")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_0encp")
 }, {
 "duration": 1.0,
@@ -348,14 +341,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_he4ac"]
-size = Vector2(1523, 71)
+size = Vector2(637, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6fmg"]
+size = Vector2(64, 19)
 
 [node name="Level1" type="Node2D"]
 
 [node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(323.5, 153.72)
-scale = Vector2(24.9219, 15.278)
-texture = ExtResource("1_bi40o")
+position = Vector2(318.5, 180.5)
+scale = Vector2(9.95313, 5.60938)
+texture = ExtResource("1_n8gjp")
+metadata/_edit_lock_ = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(334, 71)
@@ -381,17 +378,28 @@ sprite_frames = SubResource("SpriteFrames_moliw")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(67, 349)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(259.5, -25.5)
+position = Vector2(252.5, -25.5)
 shape = SubResource("RectangleShape2D_he4ac")
 
-[node name="Spike" parent="." instance=ExtResource("10_ykh5j")]
+[node name="Spike" type="Area2D" parent="." groups=["Player"]]
+position = Vector2(102, 277)
+script = ExtResource("2_r75rh")
+metadata/_edit_group_ = true
 
-[node name="Spike2" parent="." instance=ExtResource("10_ykh5j")]
-position = Vector2(460, 291)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(-33, 0.5)
+shape = SubResource("RectangleShape2D_l6fmg")
+one_way_collision_margin = 0.0
+debug_color = Color(0.984314, 0, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike"]
+position = Vector2(-31, -12)
+scale = Vector2(4.3125, 2.6875)
+texture = ExtResource("4_l8xv5")
+
+[connection signal="area_entered" from="Spike" to="Spike" method="_on_area_entered"]
