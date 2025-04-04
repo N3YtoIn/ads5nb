@@ -1,0 +1,4 @@
+res://Scenes/level_1.tscn
+res://Scripts/box.gd
+res://PreFabs/box.tscn
+res://Scripts/fruit_abacaxi.gd

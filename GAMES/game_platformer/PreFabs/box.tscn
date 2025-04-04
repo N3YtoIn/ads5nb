@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsyjhqd3kh2wt"]
+
+[ext_resource type="Script" path="res://Scripts/box.gd" id="1_45pqt"]
+[ext_resource type="Texture2D" uid="uid://dg5jppjueiosq" path="res://Sprites/Items/Boxes/Box1/Hit (28x24).png" id="2_7cp2n"]
+[ext_resource type="Texture2D" uid="uid://diewwaw7kpovo" path="res://Sprites/Items/Boxes/Box1/Idle.png" id="3_64bvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crran"]
+size = Vector2(23, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81m3n"]
+atlas = ExtResource("2_7cp2n")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttkxf"]
+atlas = ExtResource("2_7cp2n")
+region = Rect2(28, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kpba"]
+atlas = ExtResource("2_7cp2n")
+region = Rect2(56, 0, 28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgld7"]
+atlas = ExtResource("3_64bvm")
+region = Rect2(0, 0, 28, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qmy30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81m3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttkxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kpba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgld7")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgld7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kpdq"]
+size = Vector2(16, 24)
+
+[node name="Box" type="StaticBody2D"]
+position = Vector2(77, 206)
+script = ExtResource("1_45pqt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_crran")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.16667, 1.16667)
+sprite_frames = SubResource("SpriteFrames_qmy30")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0kpdq")
+debug_color = Color(0.539598, 0.434923, 0.935395, 0.42)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 15
+lifetime = 1.2
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(1, 200)
+initial_velocity_min = 45.0
+initial_velocity_max = 60.0
+angular_velocity_min = -305.45
+angular_velocity_max = 145.46
+angle_min = -363.6
+angle_max = 360.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+color = Color(0.72549, 0.431373, 0.329412, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

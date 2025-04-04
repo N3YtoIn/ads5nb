@@ -1,0 +1,12 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1739397251
+::res://Fonts/::1739320211
+::res://Scenes/::1739321638
+main.tscn::PackedScene::581381655728359365::1739321638::0::1::::<><>::uid://1eoisauya0bf::::res://Sprites/baixados.jpg<>res://Scenes/sprite_2d_2.gd
+sprite_2d_2.gd::GDScript::-1::1739321412::0::1::::<>Sprite2D<>::
+::res://Scripts/::1739321638
+sprite_2d.gd::GDScript::-1::1739321638::0::1::::<>Sprite2D<>::
+::res://Sounds/::1739320227
+::res://Sprites/::1739321406
+baixados.jpg::CompressedTexture2D::1834032716216162827::1739321326::1739321406::1::::<><>::
+icon.svg::CompressedTexture2D::1067249536098371858::1739319328::1739320596::1::::<><>::
