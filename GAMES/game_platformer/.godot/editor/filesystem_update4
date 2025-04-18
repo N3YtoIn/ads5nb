@@ -1,4 +1,5 @@
+res://Scenes/menu.tscn
+res://Scripts/player.gd
 res://Scenes/level_1.tscn
-res://Scripts/box.gd
-res://PreFabs/box.tscn
-res://Scripts/fruit_abacaxi.gd
+res://Scripts/flag.gd
+res://Scenes/level_2.tscn

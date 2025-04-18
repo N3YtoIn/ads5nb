@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3ucqoev7qy1b"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_py5kw"]
+[ext_resource type="FontFile" uid="uid://bcombklk25o7n" path="res://Fonts/Pixeled.ttf" id="2_ffb0m"]
+[ext_resource type="Texture2D" uid="uid://dmqo7i7jsfwo7" path="res://Sprites/Background/pixelback.jpg" id="2_gl4ef"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_py5kw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 639.0
+offset_bottom = 360.0
+texture = ExtResource("2_gl4ef")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 43.0
+offset_right = 353.0
+offset_bottom = 107.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ffb0m")
+theme_override_font_sizes/font_size = 20
+text = "Play
+"
+flat = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 110.0
+offset_right = 354.0
+offset_bottom = 174.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ffb0m")
+theme_override_font_sizes/font_size = 20
+text = "Quit
+"
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 184.0
+offset_right = 516.0
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(0.769782, 0.782698, 0.683763, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 10
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("2_ffb0m")
+theme_override_font_sizes/font_size = 35
+text = "GhostFlorest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

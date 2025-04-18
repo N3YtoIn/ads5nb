@@ -1,8 +1,12 @@
+res://Scenes
 res://PreFabs
+res://Sprites/Items/Checkpoints/Checkpoint
+res://Sprites/Background
+res://Scripts
+res://Fonts
+res://Sprites/Main Characters/Mask Dude
 res://Sprites/Items/Fruits
 res://Sprites/Items/Boxes/Box1
 res://Sprites/Terrain
-res://Sprites/Background
 res://Sprites/Main Characters/Ninja Frog
 res://Sprites/Traps/Spikes
-res://Scenes

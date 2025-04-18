@@ -4,6 +4,10 @@ Instalar React e Começar APP
 npx create-expo-app@latest
 
 
+DELETE
+
+APP ('NOT FOUND'; 'TABS')
+
 Dependências
 npm install axios
 

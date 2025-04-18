@@ -1,23 +1,32 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1743547384
+::res://::1744756392
 icon.svg::CompressedTexture2D::596835697105009190::1741732162::1741732166::1::::<><>::
 ::res://Fonts/::1741737745
 Pixeled.ttf::FontFile::2556430591951086885::1741737714::1741737745::1::::<><>::
-::res://PreFabs/::1742344492
+::res://PreFabs/::1743552701
+box.tscn::PackedScene::3699924735061228931::1743550880::0::1::::<><>::res://Scripts/box.gd<>uid://dg5jppjueiosq::::res://Sprites/Items/Boxes/Box1/Hit (28x24).png<>uid://diewwaw7kpovo::::res://Sprites/Items/Boxes/Box1/Idle.png
+fruit_abacaxi.tscn::PackedScene::1071504752567866961::1743552701::0::1::::<><>::res://Scripts/fruit_abacaxi.gd<>uid://b187f3b2tmeo6::::res://Sprites/Items/Fruits/Collected.png<>uid://c2uprv0205d0h::::res://Sprites/Items/Fruits/Pineapple.png
 spike.tscn::PackedScene::215889262454118628::1742344492::0::1::::<><>::res://Scripts/spike.gd<>uid://cagn5af0sfuy5::::res://Sprites/Traps/Spikes/Idle.png
-::res://Scenes/::1743546165
-level_1.tscn::PackedScene::5414099911899376007::1743546165::0::1::::<><>::res://Scripts/player.gd<>uid://b77m5js0nep53::::res://Sprites/Background/Purple.png<>uid://d4ejviukippo1::::res://Sprites/Main Characters/Ninja Frog/Idle (32x32).png<>uid://ci8phvo8eixm6::::res://Sprites/Main Characters/Ninja Frog/Jump (32x32).png<>uid://ca7lewj4dh1wp::::res://Sprites/Main Characters/Ninja Frog/Double Jump (32x32).png<>uid://cc3xn32xqo878::::res://Sprites/Main Characters/Ninja Frog/Fall (32x32).png<>uid://dmbxruxuy3mtc::::res://Sprites/Main Characters/Ninja Frog/Hit (32x32).png<>uid://cfvtrlpbfa7ce::::res://Sprites/Main Characters/Ninja Frog/Run (32x32).png<>uid://djhxide6qj8cf::::res://Sprites/Main Characters/Ninja Frog/Wall Jump (32x32).png<>uid://dctwuj4lv6qq::::res://PreFabs/spike.tscn
-::res://Scripts/::1742343662
-player.gd::GDScript::-1::1742343661::0::1::::<>CharacterBody2D<>::
+::res://Scenes/::1744756342
+level_1.tscn::PackedScene::5414099911899376007::1744159060::0::1::::<><>::res://Scripts/player.gd<>uid://b77m5js0nep53::::res://Sprites/Background/Purple.png<>uid://d4ejviukippo1::::res://Sprites/Main Characters/Ninja Frog/Idle (32x32).png<>uid://ci8phvo8eixm6::::res://Sprites/Main Characters/Ninja Frog/Jump (32x32).png<>uid://ca7lewj4dh1wp::::res://Sprites/Main Characters/Ninja Frog/Double Jump (32x32).png<>uid://cc3xn32xqo878::::res://Sprites/Main Characters/Ninja Frog/Fall (32x32).png<>uid://dmbxruxuy3mtc::::res://Sprites/Main Characters/Ninja Frog/Hit (32x32).png<>uid://cfvtrlpbfa7ce::::res://Sprites/Main Characters/Ninja Frog/Run (32x32).png<>uid://djhxide6qj8cf::::res://Sprites/Main Characters/Ninja Frog/Wall Jump (32x32).png<>uid://c68f1gutpsxlx::::res://Sprites/Main Characters/Mask Dude/Jump (32x32).png<>uid://sj8s2u2rmo3b::::res://Sprites/Main Characters/Mask Dude/Double Jump (32x32).png<>uid://dctwuj4lv6qq::::res://PreFabs/spike.tscn<>uid://bsyjhqd3kh2wt::::res://PreFabs/box.tscn<>uid://64bjvncd5qaf::::res://Sprites/Main Characters/Mask Dude/Fall (32x32).png<>uid://pjbr55o5wfg8::::res://PreFabs/fruit_abacaxi.tscn<>uid://l7w6kgtk27kr::::res://Sprites/Main Characters/Mask Dude/Hit (32x32).png<>uid://dlnw7mluq5cd0::::res://Sprites/Terrain/Terrain (16x16).png<>uid://cshtgav4whtwq::::res://Sprites/Main Characters/Mask Dude/Idle (32x32).png<>uid://ddjro3ghmt3k6::::res://Sprites/Main Characters/Mask Dude/Run (32x32).png<>uid://okdiw6qufd1t::::res://Sprites/Main Characters/Mask Dude/Wall Jump (32x32).png<>uid://bcombklk25o7n::::res://Fonts/Pixeled.ttf<>res://Scripts/score.gd
+menu.tscn::PackedScene::4393146609830898421::1744756342::0::1::::<><>::res://Scripts/menu.gd<>uid://by7gnebfslmuu::::res://Sprites/Background/dirry.jpg<>uid://bcombklk25o7n::::res://Fonts/Pixeled.ttf
+::res://Scripts/::1744756342
+box.gd::GDScript::-1::1744155494::0::1::::<>StaticBody2D<>::
+fruit_abacaxi.gd::GDScript::-1::1744155439::0::1::::<>Area2D<>::
+Global.gd::GDScript::-1::1744155195::0::1::::<>Node<>::
+menu.gd::GDScript::-1::1744159004::0::1::::<>Control<>::
+player.gd::GDScript::-1::1744756342::0::1::::<>CharacterBody2D<>::
+score.gd::GDScript::-1::1744155357::0::1::::<>Label<>::
 spike.gd::GDScript::-1::1741739116::0::1::::<>Area2D<>::
 ::res://Sounds/::1741732336
-::res://Sprites/::1741737719
-::res://Sprites/Background/::1741737745
+::res://Sprites/::1744756392
+::res://Sprites/Background/::1744756392
 Blue.png::CompressedTexture2D::906117329068592863::1741737714::1741737745::1::::<><>::
 Brown.png::CompressedTexture2D::8553034708346304339::1741737714::1741737745::1::::<><>::
 Gray.png::CompressedTexture2D::1220307266249027570::1741737714::1741737745::1::::<><>::
 Green.png::CompressedTexture2D::6930260351713713862::1741737714::1741737745::1::::<><>::
 Pink.png::CompressedTexture2D::2628404314823504548::1741737714::1741737745::1::::<><>::
+pixelback.jpg::CompressedTexture2D::8035465872158073148::1744756386::1744756393::1::::<><>::
 Purple.png::CompressedTexture2D::4699306447640458980::1741737714::1741737745::1::::<><>::
 Yellow.png::CompressedTexture2D::4222810888507527721::1741737714::1741737745::1::::<><>::
 ::res://Sprites/Items/::1741737715

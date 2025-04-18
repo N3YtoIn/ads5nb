@@ -6,6 +6,9 @@ var jumps = 1
 var dir
 var speed = 160.0
 var is_alive = true
+@export var left = "Left"
+@export var right = "Right"
+@export var jump = "Jump"
 
 func _physics_process(delta: float) -> void:
 	
@@ -19,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 func move(delta):
 	if is_alive:
-		dir = Input.get_axis("Left","Right")
+		dir = Input.get_axis(left, right)
 	
 	if dir:
 		velocity.x = dir * speed
@@ -30,13 +33,15 @@ func move(delta):
 		velocity.y += gravity * delta
 		
 	if is_alive:
-		if Input.is_action_just_pressed("Jump") and jumps > 0:
+		if Input.is_action_just_pressed(jump) and jumps > 0:
 			velocity.y = jump_velocity
 			jumps -= 1
 	
 	if is_on_floor():
 		jumps = 1
 	
+	if global_position.y > 400 and is_alive:
+		die()
 	
 	move_and_slide()
 	
@@ -63,18 +68,23 @@ func animations():
 
 func die():
 	
-	is_alive = false
-	$AnimatedSprite2D.play("hit")
+	if is_alive:
 	
-	$CollisionShape2D.queue_free()
-	$Area2D.queue_free()
-	velocity.y = jump_velocity
-	
-	camera_zoom()
-	
-	await get_tree().create_timer(1.1).timeout
-	
-	get_tree().reload_current_scene()
+		is_alive = false
+		
+		Global.score = 0
+		
+		$AnimatedSprite2D.play("hit")
+		
+		$CollisionShape2D.queue_free()
+		$Area2D.queue_free()
+		velocity.y = jump_velocity
+		
+		camera_zoom()
+		
+		await get_tree().create_timer(1.1).timeout
+		
+		get_tree().reload_current_scene()
 	
 	pass
 
